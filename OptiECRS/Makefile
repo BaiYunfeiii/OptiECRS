@@ -6,10 +6,10 @@ OUT	= OptiECRS
 CC	 = g++
 C	 = gcc
 FLAGS	 = -c -Wall -O3
-GUROBIINC = -I/Library/gurobi903/mac64/include
-GUROBILIB = -L/Library/gurobi903/mac64/lib
-GUROBICAL = -lgurobi90 -lgurobi_c++
-LFLAGS	 = 
+GUROBIINC = -I/home/yfbai/Library/gurobi903/linux64/include
+GUROBILIB = -L/home/yfbai/Library/gurobi903/linux64/lib
+GUROBICAL = -lgurobi_c++ -lgurobi90 -lm
+LFLAGS	 =
 
 all: $(OBJS)
 	$(CC) -g $(OBJS) -o $(OUT) $(LFLAGS) $(GUROBIINC) $(GUROBILIB) $(GUROBICAL)
@@ -76,7 +76,6 @@ gf_method.o: external/bundle/gf_method.c
 
 gf_rand.o: external/bundle/gf_rand.c
 	$(C) $(FLAGS) external/bundle/gf_rand.c -std=c17
-r6.c -std=c17
 
 timing.o: external/bundle/timing.c
 	$(C) $(FLAGS) external/bundle/timing.c -std=c17
